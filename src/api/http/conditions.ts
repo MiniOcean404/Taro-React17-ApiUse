@@ -1,7 +1,7 @@
 import { errorTip, noData } from './handle'
 import Taro from '@tarojs/taro'
 
-const handle = new Map([
+const handleMap = new Map([
 	['errorTip', errorTip],
 	['noData', noData],
 ])
@@ -14,12 +14,12 @@ export function netSuccess(res, url) {
 	const { code } = data
 	const { msg } = data
 
-	if (handle.get(code)) {
-		handle.get(code)(data)
+	if (handleMap.get(code)) {
+		handleMap.get(code)!(data)
 	} else if (res && msg && code !== 200) {
-		handle.get('errorTip')(data)
+		handleMap.get('errorTip')!(data)
 	} else if (res && !code && !msg) {
-		handle.get('noData')(url)
+		handleMap.get('noData')!(url)
 	}
 }
 

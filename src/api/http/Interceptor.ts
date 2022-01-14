@@ -12,6 +12,7 @@ export async function addInterceptor(chain) {
 	})
 
 	const req = chain.requestParams
+	// @ts-ignore
 	const { method, data, url } = req
 
 	// token信息
@@ -22,7 +23,9 @@ export async function addInterceptor(chain) {
 	if (isAddToken && token) {
 		req.header.token = token
 	} else if (isAddToken) {
-		const vuex = localStorage.getItem('vuex') ? JSON.parse(localStorage.getItem('vuex')) : null
+		const vuex = localStorage.getItem('vuex')
+			? JSON.parse(localStorage.getItem('vuex') || '')
+			: null
 		req.header.token = token = vuex ? vuex.user.token : ''
 	}
 

@@ -1,8 +1,10 @@
 import Taro from '@tarojs/taro'
 
 // 请求成功
-export function reqSuc(data, header, statusCode, errMsg) {
-	return data
+// @ts-ignore
+export function reqSuc(result) {
+	// @ts-ignore
+	const { data, header, statusCode, errMsg } = result
 }
 
 // 请求失败-网络异常处理
