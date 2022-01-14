@@ -24,8 +24,8 @@ const config = {
 		'@/project': path.resolve(__dirname, '..', 'project.config.json'),
 	},
 	sass: {
-		// projectDirectory: path.resolve(__dirname, '..'),
-		// resource: ['src/styles/variable.scss', 'src/styles/mixins.scss'],
+		projectDirectory: path.resolve(__dirname, '..'),
+		resource: ['src/css/base/variable.scss', 'src/css/base/mixins.scss'],
 	},
 	mini: {
 		postcss: {
