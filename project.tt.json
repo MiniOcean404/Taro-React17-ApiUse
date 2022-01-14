@@ -1,6 +1,6 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "PolicyManaged",
+  "projectname": "Taro-React",
   "appid": "testAppId",
   "setting": {
     "es6": false,

@@ -1,7 +1,7 @@
 const path = require('path')
 const config = {
 	framework: 'react',
-	projectName: 'PolicyManaged',
+	projectName: 'Taro-React',
 	date: '2022-1-12',
 	designWidth: 750,
 	deviceRatio: {

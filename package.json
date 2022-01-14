@@ -1,8 +1,8 @@
 {
-  "name": "PolicyManaged",
+  "name": "Taro-React",
   "version": "1.0.0",
   "private": true,
-  "description": "保单托管",
+  "description": "Taro-React模板",
   "templateInfo": {
     "name": "default",
     "typescript": true,

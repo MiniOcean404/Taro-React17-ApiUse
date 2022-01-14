@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./dist",
-  "projectname": "PolicyManaged",
-  "description": "保单托管",
+  "projectname": "Taro-React",
+  "description": "Taro-React模板",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,
