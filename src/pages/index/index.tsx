@@ -4,6 +4,7 @@ import { AtButton } from 'taro-ui'
 import './index.scss'
 import { State } from 'src/types'
 import SButton from '../../components/button'
+import { login } from '../../api/login'
 
 export default class Index extends Component<undefined | null, State> {
 	// shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -62,6 +63,9 @@ export default class Index extends Component<undefined | null, State> {
 				console.log(this.state.isShow)
 			},
 		)
+		login('admin', '123456').then((res) => {
+			console.log(res)
+		})
 	}
 
 	render() {

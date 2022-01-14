@@ -2,12 +2,12 @@
 import { reqFail, reqSuc } from './requestStatus'
 import Taro from '@tarojs/taro'
 
-export default function server(params) {
+export default function request(params) {
 	const { url, method = 'GET', data = {}, header = { 'content-type': 'application/json' } } = params
 
 	return Taro.request({
 		dataType: 'json',
-		url,
+		url: process.env.BASE_URL + url,
 		data,
 		method,
 		header,
@@ -30,12 +30,15 @@ export default function server(params) {
 // 拦截器
 Taro.addInterceptor((chain) => {
 	const requestParams = chain.requestParams
-	const { method, data, url } = requestParams
+	// const { method, data, url } = requestParams
 
-	console.log(`http ${method || 'GET'} --> ${url} data: `, data)
+	// console.log(`方法： ${method || 'GET'} --> 地址：${url} 请求数据：: `, data)
 
 	return chain.proceed(requestParams).then((res) => {
-		console.log(`http <-- ${url} result:`, res)
+		// console.log(`地址 <-- ${url} 响应结果:`, res)
 		return res
 	})
 })
+
+// Taro.addInterceptor(Taro.interceptors.logInterceptor)
+Taro.addInterceptor(Taro.interceptors.timeoutInterceptor)

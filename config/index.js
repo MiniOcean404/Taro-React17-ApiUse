@@ -1,4 +1,6 @@
+const path = require('path')
 const config = {
+	framework: 'react',
 	projectName: 'PolicyManaged',
 	date: '2022-1-12',
 	designWidth: 750,
@@ -10,12 +12,21 @@ const config = {
 	sourceRoot: 'src',
 	outputRoot: 'dist',
 	plugins: [],
-	defineConstants: {},
 	copy: {
 		patterns: [],
 		options: {},
 	},
-	framework: 'react',
+	defineConstants: {},
+	alias: {
+		'@/components': path.resolve(__dirname, '..', 'src/components'),
+		'@/utils': path.resolve(__dirname, '..', 'src/utils'),
+		'@/package': path.resolve(__dirname, '..', 'package.json'),
+		'@/project': path.resolve(__dirname, '..', 'project.config.json'),
+	},
+	sass: {
+		// projectDirectory: path.resolve(__dirname, '..'),
+		// resource: ['src/styles/variable.scss', 'src/styles/mixins.scss'],
+	},
 	mini: {
 		postcss: {
 			pxtransform: {

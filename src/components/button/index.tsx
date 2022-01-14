@@ -3,7 +3,7 @@ import { View, Text } from '@tarojs/components'
 import PropTypes from 'prop-types'
 import './index.scss'
 
-export default class SButton extends PureComponent<{ value: number }, any> {
+export default class SButton extends PureComponent<{ value: boolean }, any> {
 	public static propTypes
 
 	constructor(prop) {
