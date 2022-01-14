@@ -1,57 +1,41 @@
-import { currentConfig } from 'api/http/config';
-import { netFail, netSuccess } from './business/conditions';
-import whitelist from './whitelist';
+// import { currentConfig } from 'api/http/config'
+import { netFail, netSuccess } from './conditions'
+import whitelist from './whitelist'
+import Taro from '@tarojs/taro'
 
-// 接口URL
-let url;
-let token;
-let userCode;
+let token
+// console.log(`方法： ${method || 'GET'} --> 地址：${url} 请求数据：: `, data)
+// console.log(`地址 <-- ${url} 响应结果:`, res)
+export async function addInterceptor(chain) {
+	await Taro.showLoading({
+		title: '加载中',
+	})
 
-export function invoke(args) {
-	uni.showLoading({
-		title: '加载中..',
-		mask: true,
-	});
-	url = args.url;
-	// 是否对组件包装的上传方法进行配置
-	const havePrefix = url.startsWith('http://') || url.startsWith('https://');
-
-	// 添加接口前缀
-	if (!havePrefix && currentConfig.baseUrl) {
-		args.url = currentConfig.baseUrl + args.url;
-	}
+	const req = chain.requestParams
+	const { method, data, url } = req
 
 	// token信息
 	const isAddToken = whitelist.some((i) => {
-		return i.exec(args.url);
-	});
-	if (isAddToken && token && userCode && !havePrefix) {
-		args.header.token = token;
-		args.header.userCode = userCode;
-	} else if (isAddToken && !havePrefix) {
-		const vuex = localStorage.getItem('vuex') ? JSON.parse(localStorage.getItem('vuex')) : null;
-		args.header.token = token = vuex ? vuex.user.token : '';
-		args.header.userCode = userCode = vuex ? vuex.user.visitId : '';
+		return i.exec(url)
+	})
+
+	if (isAddToken && token) {
+		req.header.token = token
+	} else if (isAddToken) {
+		const vuex = localStorage.getItem('vuex') ? JSON.parse(localStorage.getItem('vuex')) : null
+		req.header.token = token = vuex ? vuex.user.token : ''
 	}
 
-	return args;
+	return chain.proceed(req).then((res) => {
+		const { statusCode } = res
+
+		if (statusCode === 200) {
+			netSuccess(res, url)
+		} else {
+			netFail(res)
+		}
+
+		Taro.hideLoading()
+		return res
+	})
 }
-
-export function success(args) {
-	uni.hideLoading();
-	const { statusCode } = args;
-
-	// * 网络状态码处理
-	if (statusCode === 200) {
-		netSuccess(args, url);
-	} else if (statusCode !== 200) {
-		netFail(args);
-	}
-	return args;
-}
-
-export function fail(err) {
-	console.error(`失败拦截:${JSON.stringify(err)}`);
-}
-
-export function complete(res) {}

@@ -1,6 +1,6 @@
-// import { invoke, success, fail, complete } from './Interceptor'
-import { reqFail, reqSuc } from './requestStatus'
+import { reqFail, reqSuc, reqComplete } from './reqStatus'
 import Taro from '@tarojs/taro'
+import { addInterceptor } from './Interceptor'
 
 export default function request(params) {
 	const { url, method = 'GET', data = {}, header = { 'content-type': 'application/json' } } = params
@@ -23,22 +23,11 @@ export default function request(params) {
 		// storeCheck:'',	// 设置 H5 端请求校验函数，一般不需要设置
 		success: reqSuc,
 		fail: reqFail,
-		complete() {},
+		complete: reqComplete,
 	})
 }
 
 // 拦截器
-Taro.addInterceptor((chain) => {
-	const requestParams = chain.requestParams
-	// const { method, data, url } = requestParams
-
-	// console.log(`方法： ${method || 'GET'} --> 地址：${url} 请求数据：: `, data)
-
-	return chain.proceed(requestParams).then((res) => {
-		// console.log(`地址 <-- ${url} 响应结果:`, res)
-		return res
-	})
-})
-
+Taro.addInterceptor(addInterceptor)
 // Taro.addInterceptor(Taro.interceptors.logInterceptor)
 Taro.addInterceptor(Taro.interceptors.timeoutInterceptor)
