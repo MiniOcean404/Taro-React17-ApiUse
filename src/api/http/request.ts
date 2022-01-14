@@ -7,7 +7,8 @@ export default function request(params) {
 
 	return Taro.request({
 		dataType: 'json',
-		url: process.env.BASE_URL + url,
+		// @ts-ignore
+		url: BASE_URL + url,
 		data,
 		method,
 		header,
