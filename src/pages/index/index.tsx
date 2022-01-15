@@ -77,7 +77,7 @@ export default class Index extends Component<undefined | null, State> {
 					<AtButton type='primary' onClick={this.toggle}>
 						切换
 					</AtButton>
-					<Text>{isShow ? '你好' : <div>我不好</div>}</Text>
+					<Text>{isShow ? '你好' : '我不好'}</Text>
 				</View>
 
 				<View id='prop'>

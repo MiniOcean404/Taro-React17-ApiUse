@@ -1,4 +1,6 @@
-export default defineAppConfig({
+// RN端不支持defineAppConfig函数
+// export default defineAppConfig({})
+export default {
 	pages: ['pages/index/index'],
 	window: {
 		backgroundTextStyle: 'light',
@@ -6,4 +8,4 @@ export default defineAppConfig({
 		navigationBarTitleText: 'WeChat',
 		navigationBarTextStyle: 'black',
 	},
-})
+}

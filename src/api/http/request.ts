@@ -1,5 +1,5 @@
 import { reqFail, reqSuc, reqComplete } from './reqStatus'
-import Taro from '@tarojs/taro'
+import Taro, { ENV_TYPE } from '@tarojs/taro'
 import { addInterceptor } from './Interceptor'
 
 export default function request(params) {
@@ -28,7 +28,9 @@ export default function request(params) {
 	})
 }
 
-// 拦截器
-Taro.addInterceptor(addInterceptor)
-// Taro.addInterceptor(Taro.interceptors.logInterceptor)
-Taro.addInterceptor(Taro.interceptors.timeoutInterceptor)
+if (ENV_TYPE.RN !== 'RN') {
+	// 拦截器
+	Taro.addInterceptor(addInterceptor)
+	// Taro.addInterceptor(Taro.interceptors.logInterceptor)
+	Taro.addInterceptor(Taro.interceptors.timeoutInterceptor)
+}
