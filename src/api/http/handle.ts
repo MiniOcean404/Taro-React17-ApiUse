@@ -1,9 +1,9 @@
 // 后端消息提示
-import Taro from '@tarojs/taro'
+import { showToast } from '@tarojs/taro'
 
 // 错误消息提示
 export function errorTip({ msg }) {
-	Taro.showToast({
+	showToast({
 		title: msg,
 		icon: 'none',
 		duration: 3000,

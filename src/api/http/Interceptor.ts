@@ -1,13 +1,13 @@
 // import { currentConfig } from 'api/http/config'
 import { netFail, netSuccess } from './conditions'
 import whitelist from './whitelist'
-import Taro from '@tarojs/taro'
+import { showLoading, hideLoading } from '@tarojs/taro'
 
 let token
 // console.log(`方法： ${method || 'GET'} --> 地址：${url} 请求数据：: `, data)
 // console.log(`地址 <-- ${url} 响应结果:`, res)
-export async function addInterceptor(chain) {
-	await Taro.showLoading({
+export async function interceptor(chain) {
+	await showLoading({
 		title: '加载中',
 	})
 
@@ -38,7 +38,7 @@ export async function addInterceptor(chain) {
 			netFail(res)
 		}
 
-		Taro.hideLoading()
+		hideLoading()
 		return res
 	})
 }

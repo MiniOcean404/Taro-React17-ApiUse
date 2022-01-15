@@ -1,4 +1,4 @@
-import Taro from '@tarojs/taro'
+import { showToast } from '@tarojs/taro'
 
 // 请求成功
 // @ts-ignore
@@ -9,7 +9,7 @@ export function reqSuc(result) {
 
 // 请求失败-网络异常处理
 export async function reqFail() {
-	await Taro.showToast({
+	await showToast({
 		title: '网络错误',
 		icon: 'none',
 		duration: 2000,

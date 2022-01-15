@@ -1,5 +1,5 @@
 import { errorTip, noData } from './handle'
-import Taro from '@tarojs/taro'
+import { showToast } from '@tarojs/taro'
 
 const handleMap = new Map([
 	['errorTip', errorTip],
@@ -25,7 +25,7 @@ export function netSuccess(res, url) {
 
 // 网络状态码不是200处理
 export function netFail(res) {
-	Taro.showToast({
+	showToast({
 		title: `错误信息：${res.errMsg} 状态码：${res.statusCode}`,
 		icon: 'none',
 		duration: 3000,

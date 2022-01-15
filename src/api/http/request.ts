@@ -1,11 +1,11 @@
 import { reqFail, reqSuc, reqComplete } from './reqStatus'
-import Taro, { ENV_TYPE } from '@tarojs/taro'
-import { addInterceptor } from './Interceptor'
+import { ENV_TYPE, addInterceptor, request, interceptors } from '@tarojs/taro'
+import { interceptor } from './Interceptor'
 
-export default function request(params) {
+export default function req(params) {
 	const { url, method = 'GET', data = {}, header = { 'content-type': 'application/json' } } = params
 
-	return Taro.request({
+	return request({
 		dataType: 'json',
 		// @ts-ignore
 		url: BASE_URL + url,
@@ -30,7 +30,7 @@ export default function request(params) {
 
 if (ENV_TYPE.RN !== 'RN') {
 	// 拦截器
-	Taro.addInterceptor(addInterceptor)
+	addInterceptor(interceptor)
 	// Taro.addInterceptor(Taro.interceptors.logInterceptor)
-	Taro.addInterceptor(Taro.interceptors.timeoutInterceptor)
+	addInterceptor(interceptors.timeoutInterceptor)
 }
