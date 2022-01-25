@@ -5,6 +5,8 @@ import './index.scss'
 import { State } from 'src/types'
 import SButton from '../../components/button'
 import { login } from '../../api/login'
+import { FC } from '../function-component-FC'
+import { FCUseState } from '../hook-useState'
 
 export default class Index extends Component<undefined | null, State> {
 	// shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -69,10 +71,10 @@ export default class Index extends Component<undefined | null, State> {
 	}
 
 	render() {
-		console.log('组件渲染中')
 		const { isShow } = this.state
 		return (
 			<Fragment>
+				{/*正常写法*/}
 				<View id='index'>
 					<AtButton type='primary' onClick={this.toggle}>
 						切换
@@ -80,9 +82,16 @@ export default class Index extends Component<undefined | null, State> {
 					<Text>{isShow ? '你好' : '我不好'}</Text>
 				</View>
 
+				{/*传递父子关系*/}
 				<View id='prop'>
 					<SButton value={isShow}> </SButton>
 				</View>
+
+				{/*函数式组件*/}
+				<FC message='函数式组件'>传递children</FC>
+
+				{/*函数式组件*/}
+				<FCUseState>1</FCUseState>
 			</Fragment>
 		)
 	}
