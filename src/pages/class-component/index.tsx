@@ -19,17 +19,24 @@ export default class ClassComponent extends Component<{}, State> {
 		console.log('不安全：将要挂载')
 	}
 
+	// 更新钩子1 -> render
+	// true 执行render 否则不执行任何
 	shouldComponentUpdate(nextProps, nextState, nextContext) {
 		return true
 	}
 
-	getSnapshotBeforeUpdate(prevProps: Readonly<{}>, prevState: Readonly<State>): any {}
+	// render -> 更新钩子2 -> React 更新 DOM 和 refs
+	getSnapshotBeforeUpdate(prevProps: Readonly<{}>, prevState: Readonly<State>): any {
+		console.log('获取快照')
+	}
 
+	// 更新钩子3
 	componentDidUpdate(prevProps, prevState, snapshot) {
 		console.log('更新完成')
 		return true
 	}
 
+	// render -> React 更新 DOM 和 refs -> 挂载钩子
 	componentDidMount() {
 		console.log('挂载完成')
 	}
@@ -42,6 +49,7 @@ export default class ClassComponent extends Component<{}, State> {
 
 	componentDidHide() {}
 
+	// 除了卸载钩子 更新挂载都会第一个走这个
 	static getDerivedStateFromProps(props, state) {}
 
 	constructor(prop) {
