@@ -40,6 +40,8 @@ export const StyleClass: FC<AppProps> = () => {
 			<View className={buttonClass} onClick={onClickActive}>
 				{buttonText}
 			</View>
+
+			<br />
 		</Fragment>
 	)
 }

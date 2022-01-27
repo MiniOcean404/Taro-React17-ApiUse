@@ -1,4 +1,4 @@
-import { FC, ReactNode, useMemo, useState } from 'react'
+import { FC, Fragment, ReactNode, useMemo, useState } from 'react'
 import { View } from '@tarojs/components'
 
 type AppProps = {
@@ -23,9 +23,12 @@ export const Computed: FC<AppProps> = () => {
 	}
 
 	return (
-		<View className='computed'>
-			<button onClick={onAdd}>+10</button>
-			<View>计算结果：{num3}</View>
-		</View>
+		<Fragment>
+			<View className='computed'>
+				<button onClick={onAdd}>+10</button>
+				<View>计算结果：{num3}</View>
+			</View>
+			<br />
+		</Fragment>
 	)
 }

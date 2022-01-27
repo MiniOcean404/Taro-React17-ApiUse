@@ -1,4 +1,4 @@
-import { FC, ReactNode, useEffect, useMemo, useState } from 'react'
+import { FC, Fragment, ReactNode, useEffect, useMemo, useState } from 'react'
 import { View } from '@tarojs/components'
 
 type AppProps = {
@@ -34,17 +34,21 @@ export const Watch: FC<AppProps> = () => {
 	}, [selectValue])
 
 	return (
-		<View className='watch'>
-			<View className='selects'>
-				{selects.map((item, i) => {
-					return (
-						<button key={i} onClick={() => onSelect(item)}>
-							{item}
-						</button>
-					)
-				})}
+		<Fragment>
+			<View className='watch'>
+				<View className='selects'>
+					{selects.map((item, i) => {
+						return (
+							<button key={i} onClick={() => onSelect(item)}>
+								{item}
+							</button>
+						)
+					})}
+				</View>
+				<View className='result'>{result}</View>
 			</View>
-			<View className='result'>{result}</View>
-		</View>
+
+			<br />
+		</Fragment>
 	)
 }

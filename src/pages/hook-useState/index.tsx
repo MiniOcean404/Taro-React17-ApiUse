@@ -1,5 +1,5 @@
 import './index.scss'
-import { FC, ReactNode, useCallback, useState } from 'react'
+import { FC, Fragment, ReactNode, useCallback, useState } from 'react'
 import { View, Text } from '@tarojs/components'
 // 1. 使用 PropsWithChildren，这种方式可以为你省去频繁定义 children 的类型，自动设置 children 类型为 ReactNode:
 // type AppProps = React.PropsWithChildren<{ message: string }>
@@ -13,7 +13,7 @@ export const FCUseStateHook: FC<AppProps> = () => {
 	const [val, toggle] = useState(false)
 
 	// obj会自动推导为类型: {name: string}
-	const [user] = useState({ name: 'hh', age: 1 })
+	const [user] = useState({ name: '用户名', age: 18 })
 
 	// arr会自动推导为类型: string[]
 	const [arr] = useState(['1', '2'])
@@ -23,15 +23,19 @@ export const FCUseStateHook: FC<AppProps> = () => {
 	}, [])
 
 	return (
-		<View>
-			<Text onClick={() => toggle(!val)}>{val.toString()}</Text>
-			<br />
-			<Text>obj{user.name}</Text>
-			<br />
-			<Text>{arr}</Text>
-			<br />
+		<Fragment>
+			<View>
+				<Text onClick={() => toggle(!val)}>{val.toString()}</Text>
+				<br />
+				<Text>obj:{user.name}</Text>
+				<br />
+				<Text>{arr}</Text>
+				<br />
 
-			<Text>{showUser(user)}</Text>
-		</View>
+				<Text>{showUser(user)}</Text>
+			</View>
+
+			<br />
+		</Fragment>
 	)
 }

@@ -12,7 +12,6 @@ export const ProvideInject: FC<AppProps> = () => {
 
 	return (
 		<Fragment>
-			<br />
 			<View className='provide-inject'>{userInfo.name}</View>
 			<br />
 		</Fragment>

@@ -1,6 +1,5 @@
 import { Component, Fragment } from 'react'
-import { View, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import { View } from '@tarojs/components'
 import './index.scss'
 import { State } from 'src/types'
 import SButton from '../../components/button'
@@ -15,68 +14,10 @@ import { StyleClass } from '../style-class'
 import { UserInfoContext } from '../../context'
 import { ProvideInject } from '../provide-inject'
 import { Slot } from '../slot'
+import ClassComponent from '../class-component'
 
 export default class Index extends Component<undefined | null, State> {
-	// shouldComponentUpdate(nextProps, nextState, nextContext) {
-	//   return true
-	// }
-
-	// componentWillUpdate(nextProps, nextState, nextContext) {
-	//     console.log('组件将要更新')
-	//     return true
-	// }
-
-	// componentDidUpdate(prevProps, prevState, snapshot) {
-	//   console.log('组件更新完成')
-	//   return true
-	// }
-
-	// componentWillReceiveProps(nextProps, nextContext) {
-	//     console.log('组件将要接收属性')
-	// }
-
-	// componentWillMount() {
-	//     console.log('组件将要挂载')
-	// }
-
-	componentWillMount() {}
-
-	componentDidMount() {
-		console.log('组件挂载完成')
-	}
-
-	componentWillUnmount() {
-		console.log('组件将要卸载')
-	}
-
-	componentDidShow() {}
-
-	componentDidHide() {}
-
-	constructor(prop) {
-		super(prop)
-
-		this.state = {
-			isShow: false,
-		}
-
-		this.toggle = this.toggle.bind(this)
-	}
-
-	toggle() {
-		this.setState(
-			{
-				isShow: !this.state.isShow,
-			},
-			() => {
-				// setState是异步更新，之后重新渲染，所以通过回调 等到组件渲染完成再log
-				console.log(this.state.isShow)
-			},
-		)
-	}
-
 	render() {
-		const { isShow } = this.state
 		return (
 			<Fragment>
 				<UserInfoContext.Provider value={{ userInfo: { name: '前端胖头鱼' } }}>
@@ -85,25 +26,20 @@ export default class Index extends Component<undefined | null, State> {
 					{/*</Routes>*/}
 
 					{/*正常写法*/}
-					<View id='index'>
-						<AtButton type='primary' onClick={this.toggle}>
-							切换
-						</AtButton>
-						<Text>{isShow ? '你好' : '我不好'}</Text>
-					</View>
+					<ClassComponent />
 
 					{/*传递父子关系*/}
-					<View id='prop'>
-						<SButton value={isShow}> </SButton>
-					</View>
+					<SButton value={false}> </SButton>
 
 					{/*函数式组件*/}
-					<FC message='函数式组件'>传递children</FC>
+					<FC message='函数式组件'>传递的children</FC>
 
 					{/*函数式组件*/}
 					<FCUseStateHook>1</FCUseStateHook>
 
+					{/*Vue Api React的写法*/}
 					<VIfVShow />
+
 					<VFor />
 					<Computed />
 					<Watch />
