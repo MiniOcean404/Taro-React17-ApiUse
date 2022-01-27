@@ -1,8 +1,9 @@
 import { Component, Fragment } from 'react'
 import { View } from '@tarojs/components'
+
 import './index.scss'
 import { State } from 'src/types'
-import SButton from '../../components/button'
+import { UserInfoContext } from '../../context'
 
 import { FC } from '../function-component-FC'
 import { FCUseStateHook } from '../hook-useState'
@@ -11,12 +12,12 @@ import { VFor } from '../v-for'
 import { Computed } from '../computed'
 import { Watch } from '../watch'
 import { StyleClass } from '../style-class'
-import { UserInfoContext } from '../../context'
 import { ProvideInject } from '../provide-inject'
 import { Slot } from '../slot'
 import ClassComponent from '../class-component'
+import SButton from '../../components/button'
 
-export default class Index extends Component<undefined | null, State> {
+export default class Index extends Component<{}, State> {
 	render() {
 		return (
 			<Fragment>

@@ -4,39 +4,45 @@ import { AtButton } from 'taro-ui'
 import { State } from 'src/types'
 
 export default class ClassComponent extends Component<{}, State> {
-	/*shouldComponentUpdate(nextProps, nextState, nextContext) {
+	// react 17 改为 UNSAFE_
+	// https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+	UNSAFE_componentWillUpdate(nextProps, nextState, nextContext) {
+		console.log('不安全：将要更新')
 		return true
 	}
 
-	componentWillUpdate(nextProps, nextState, nextContext) {
-		console.log('组件将要更新')
+	UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
+		console.log('不安全：将要接收属性')
+	}
+
+	UNSAFE_componentWillMount() {
+		console.log('不安全：将要挂载')
+	}
+
+	shouldComponentUpdate(nextProps, nextState, nextContext) {
 		return true
 	}
+
+	getSnapshotBeforeUpdate(prevProps: Readonly<{}>, prevState: Readonly<State>): any {}
 
 	componentDidUpdate(prevProps, prevState, snapshot) {
-		console.log('组件更新完成')
+		console.log('更新完成')
 		return true
-	}
-
-	componentWillReceiveProps(nextProps, nextContext) {
-		console.log('组件将要接收属性')
-	}*/
-
-	componentWillMount() {
-		console.log('组件将要挂载')
 	}
 
 	componentDidMount() {
-		console.log('组件挂载完成')
+		console.log('挂载完成')
 	}
 
 	componentWillUnmount() {
-		console.log('组件将要卸载')
+		console.log('将要卸载')
 	}
 
 	componentDidShow() {}
 
 	componentDidHide() {}
+
+	static getDerivedStateFromProps(props, state) {}
 
 	constructor(prop) {
 		super(prop)
