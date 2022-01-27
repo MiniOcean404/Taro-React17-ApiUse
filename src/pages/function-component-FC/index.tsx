@@ -1,5 +1,6 @@
 import './index.scss'
 import React from 'react'
+import { View } from '@tarojs/components'
 // https://juejin.cn/post/6952696734078369828
 // 函数式组件是无状态组件
 // 使用用React.FC声明函数组件和普通声明以及 PropsWithChildren 的区别是：
@@ -13,10 +14,10 @@ type AppProps = {
 
 // 在通常情况下，使用 React.FC 的方式声明最简单有效，推荐使用；
 export const FC: React.FC<AppProps> = ({ message, children }) => (
-	<div>
+	<View>
 		{message}
 		{children}
-	</div>
+	</View>
 )
 
 // export const FC: React.FC<{}> = () => [1, 2, 3] as any

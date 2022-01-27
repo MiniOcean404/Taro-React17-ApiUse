@@ -4,9 +4,17 @@ import { AtButton } from 'taro-ui'
 import './index.scss'
 import { State } from 'src/types'
 import SButton from '../../components/button'
-import { login } from '../../api/login'
+
 import { FC } from '../function-component-FC'
-import { FCUseState } from '../hook-useState'
+import { FCUseStateHook } from '../hook-useState'
+import { VIfVShow } from '../v-if&v-show'
+import { VFor } from '../v-for'
+import { Computed } from '../computed'
+import { Watch } from '../watch'
+import { StyleClass } from '../style-class'
+import { UserInfoContext } from '../../context'
+import { ProvideInject } from '../provide-inject'
+import { Slot } from '../slot'
 
 export default class Index extends Component<undefined | null, State> {
 	// shouldComponentUpdate(nextProps, nextState, nextContext) {
@@ -65,33 +73,49 @@ export default class Index extends Component<undefined | null, State> {
 				console.log(this.state.isShow)
 			},
 		)
-		login('admin', '123456').then((res) => {
-			console.log(res)
-		})
 	}
 
 	render() {
 		const { isShow } = this.state
 		return (
 			<Fragment>
-				{/*正常写法*/}
-				<View id='index'>
-					<AtButton type='primary' onClick={this.toggle}>
-						切换
-					</AtButton>
-					<Text>{isShow ? '你好' : '我不好'}</Text>
-				</View>
+				<UserInfoContext.Provider value={{ userInfo: { name: '前端胖头鱼' } }}>
+					{/*<Routes>*/}
+					{/*<Route path='/v-if' element={<Vif />} />*/}
+					{/*</Routes>*/}
 
-				{/*传递父子关系*/}
-				<View id='prop'>
-					<SButton value={isShow}> </SButton>
-				</View>
+					{/*正常写法*/}
+					<View id='index'>
+						<AtButton type='primary' onClick={this.toggle}>
+							切换
+						</AtButton>
+						<Text>{isShow ? '你好' : '我不好'}</Text>
+					</View>
 
-				{/*函数式组件*/}
-				<FC message='函数式组件'>传递children</FC>
+					{/*传递父子关系*/}
+					<View id='prop'>
+						<SButton value={isShow}> </SButton>
+					</View>
 
-				{/*函数式组件*/}
-				<FCUseState>1</FCUseState>
+					{/*函数式组件*/}
+					<FC message='函数式组件'>传递children</FC>
+
+					{/*函数式组件*/}
+					<FCUseStateHook>1</FCUseStateHook>
+
+					<VIfVShow />
+					<VFor />
+					<Computed />
+					<Watch />
+					<StyleClass />
+					<ProvideInject />
+
+					<Slot
+						nameSlot={<View>具名插槽</View>}
+						scopeSlot={(userInfo) => <div>{userInfo.name}</div>}>
+						默认插槽
+					</Slot>
+				</UserInfoContext.Provider>
 			</Fragment>
 		)
 	}

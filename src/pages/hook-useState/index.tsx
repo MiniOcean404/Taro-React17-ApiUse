@@ -1,32 +1,37 @@
 import './index.scss'
-import React from 'react'
-
+import { FC, ReactNode, useCallback, useState } from 'react'
+import { View, Text } from '@tarojs/components'
 // 1. 使用 PropsWithChildren，这种方式可以为你省去频繁定义 children 的类型，自动设置 children 类型为 ReactNode:
 // type AppProps = React.PropsWithChildren<{ message: string }>
 // 2. 直接声明:
-
 type AppProps = {
-	children?: React.ReactNode
+	children?: ReactNode
 }
 
-export const FCUseState: React.FC<AppProps> = () => {
+export const FCUseStateHook: FC<AppProps> = () => {
 	// `val`会推导为boolean类型， toggle接收boolean类型参数
-	const [val, toggle] = React.useState(false)
+	const [val, toggle] = useState(false)
 
 	// obj会自动推导为类型: {name: string}
-	const [obj] = React.useState({ name: 'sj' })
+	const [user] = useState({ name: 'hh', age: 1 })
 
 	// arr会自动推导为类型: string[]
-	const [arr] = React.useState(['1', '2'])
+	const [arr] = useState(['1', '2'])
+
+	const showUser = useCallback((obj: typeof user) => {
+		return `我的名字是${obj.name},我的年龄是 ${obj.age}`
+	}, [])
 
 	return (
-		<div>
-			<span onClick={() => toggle(!val)}>{val.toString()}</span>
+		<View>
+			<Text onClick={() => toggle(!val)}>{val.toString()}</Text>
 			<br />
-			<span>obj{obj.name}</span>
+			<Text>obj{user.name}</Text>
 			<br />
-			<span>{arr}</span>
+			<Text>{arr}</Text>
 			<br />
-		</div>
+
+			<Text>{showUser(user)}</Text>
+		</View>
 	)
 }

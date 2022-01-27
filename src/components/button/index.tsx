@@ -21,7 +21,7 @@ export default class SButton extends PureComponent<{ value: boolean }, any> {
 		return (
 			<Fragment>
 				<View id='button'>
-					<Text>传递过来的值:{value.toString()}</Text>
+					<Text>父传递过来的值:{value.toString()}</Text>
 				</View>
 			</Fragment>
 		)
