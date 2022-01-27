@@ -6,18 +6,18 @@ import { State } from 'src/types'
 export default class ClassComponent extends Component<{}, State> {
 	// react 17 改为 UNSAFE_
 	// https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-	UNSAFE_componentWillUpdate(nextProps, nextState, nextContext) {
-		console.log('不安全：将要更新')
-		return true
-	}
-
-	UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
-		console.log('不安全：将要接收属性')
-	}
-
-	UNSAFE_componentWillMount() {
-		console.log('不安全：将要挂载')
-	}
+	// UNSAFE_componentWillUpdate(nextProps, nextState, nextContext) {
+	// 	console.log('不安全：将要更新')
+	// 	return true
+	// }
+	//
+	// UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
+	// 	console.log('不安全：将要接收属性')
+	// }
+	//
+	// UNSAFE_componentWillMount() {
+	// 	console.log('不安全：将要挂载')
+	// }
 
 	// 更新钩子1 -> render
 	// true 执行render 否则不执行任何
@@ -49,7 +49,7 @@ export default class ClassComponent extends Component<{}, State> {
 
 	componentDidHide() {}
 
-	// 除了卸载钩子 更新挂载都会第一个走这个
+	// 除了卸载钩子 更新挂载都会第一个走这个 (使用这个所有的UNSAFE钩子不执行)
 	static getDerivedStateFromProps(props, state) {}
 
 	constructor(prop) {
