@@ -25,28 +25,23 @@ export default class ClassComponent extends Component<{}, memoState> {
 		super(props)
 		this.state = {
 			number: 1,
-			num: 1,
 		}
 	}
 
 	render() {
-		const { num, number } = this.state
+		const { number } = this.state
 
 		return (
 			<Fragment>
 				return{' '}
 				<View>
 					<View>
-						改变num：当前值 {num}
-						<button onClick={() => this.setState({ num: num + 1 })}>num++</button>
-						<button onClick={() => this.setState({ num: num - 1 })}>num--</button>
-					</View>
-					<View>
 						改变number： 当前值 {number}
 						<button onClick={() => this.setState({ number: number + 1 })}> number ++</button>
 						<button onClick={() => this.setState({ number: number - 1 })}> number -- </button>
 					</View>
-					<NewTexMemo num={num} number={number} />
+
+					<NewTexMemo number={number} />
 				</View>
 				<br />
 			</Fragment>

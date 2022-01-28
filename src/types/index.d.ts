@@ -4,7 +4,6 @@ declare namespace IndexType {
 	}
 
 	export interface memoState {
-		num: number
 		number: number
 	}
 }
