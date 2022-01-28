@@ -1,9 +1,12 @@
-import { Component, Fragment } from 'react'
+import { PureComponent, Fragment } from 'react'
 import { View, Text } from '@tarojs/components'
 import { AtButton } from 'taro-ui'
 import { State } from 'src/types'
 
-export default class ClassComponent extends Component<{}, State> {
+// PureComponent和 Component用法，差不多一样，
+// 唯一不同的是，纯组件PureComponent会浅比较，props和state是否相同，来决定是否重新渲染组件。
+// 所以一般用于性能调优，减少render次数 (创建新对象就会不渲染了)
+export default class ClassComponent extends PureComponent<{}, State> {
 	// react 17 改为 UNSAFE_
 	// https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
 	// UNSAFE_componentWillUpdate(nextProps, nextState, nextContext) {
@@ -21,20 +24,21 @@ export default class ClassComponent extends Component<{}, State> {
 
 	// 更新钩子1 -> render
 	// true 执行render 否则不执行任何
-	shouldComponentUpdate(nextProps, nextState, nextContext) {
-		return true
-	}
+	// 纯组件不能使用此钩子
+	// shouldComponentUpdate(nextProps, nextState, nextContext) {
+	// 	return true
+	// }
 
 	// render -> 更新钩子2 -> React 更新 DOM 和 refs
-	getSnapshotBeforeUpdate(prevProps: Readonly<{}>, prevState: Readonly<State>): any {
-		console.log('获取快照')
-	}
-
-	// 更新钩子3
-	componentDidUpdate(prevProps, prevState, snapshot) {
-		console.log('更新完成')
-		return true
-	}
+	// getSnapshotBeforeUpdate(prevProps: Readonly<{}>, prevState: Readonly<State>): any {
+	// 	console.log('获取快照')
+	// }
+	//
+	// // 更新钩子3
+	// componentDidUpdate(prevProps, prevState, snapshot) {
+	// 	console.log('更新完成')
+	// 	return true
+	// }
 
 	// render -> React 更新 DOM 和 refs -> 挂载钩子
 	componentDidMount() {
@@ -50,7 +54,9 @@ export default class ClassComponent extends Component<{}, State> {
 	componentDidHide() {}
 
 	// 除了卸载钩子 更新挂载都会第一个走这个 (使用这个所有的UNSAFE钩子不执行)
-	static getDerivedStateFromProps(props, state) {}
+	// static getDerivedStateFromProps(props, state) {
+	// 	return null
+	// }
 
 	constructor(prop) {
 		super(prop)

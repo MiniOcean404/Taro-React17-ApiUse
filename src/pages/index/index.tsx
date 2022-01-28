@@ -1,23 +1,23 @@
-import { Component, Fragment } from 'react'
+import { PureComponent, Fragment } from 'react'
 import { View } from '@tarojs/components'
 
 import './index.scss'
 import { State } from 'src/types'
 import { UserInfoContext } from '../../context'
 
-import { FC } from '../function-component-FC'
-import { FCUseStateHook } from '../hook-useState'
-import { VIfVShow } from '../v-if&v-show'
-import { VFor } from '../v-for'
-import { Computed } from '../computed'
-import { Watch } from '../watch'
-import { StyleClass } from '../style-class'
-import { ProvideInject } from '../provide-inject'
-import { Slot } from '../slot'
-import ClassComponent from '../class-component'
+import { FC } from '../function-component/FC'
+import { FCUseStateHook } from '../hook/useState'
+import { VIfVShow } from '../Vue&React/v-if&v-show'
+import { VFor } from '../Vue&React/v-for'
+import { Computed } from '../Vue&React/computed'
+import { Watch } from '../Vue&React/watch'
+import { StyleClass } from '../Vue&React/style-class'
+import { ProvideInject } from '../Vue&React/provide-inject'
+import { Slot } from '../Vue&React/slot'
+import ClassComponent from '../component/pure-component'
 import SButton from '../../components/button'
 
-export default class Index extends Component<{}, State> {
+export default class Index extends PureComponent<{}, State> {
 	render() {
 		return (
 			<Fragment>

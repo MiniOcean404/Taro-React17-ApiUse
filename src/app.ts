@@ -1,7 +1,7 @@
-import { Component } from 'react'
+import { PureComponent } from 'react'
 import './app.scss'
 
-class App extends Component {
+class App extends PureComponent {
 	componentDidMount() {}
 
 	componentDidShow() {}
