@@ -41,6 +41,7 @@ export default class ClassComponent extends Component<{}, memoState> {
 						<button onClick={() => this.setState({ number: number - 1 })}> number -- </button>
 					</View>
 
+					{/*值改变，根据prop true false进行渲染*/}
 					<NewTexMemo number={number} />
 				</View>
 				<br />
