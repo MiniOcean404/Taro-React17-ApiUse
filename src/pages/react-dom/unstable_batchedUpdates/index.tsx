@@ -4,6 +4,7 @@ import { unstable_batchedUpdates } from 'react-dom'
 
 // 在react-legacy模式下，对于事件，react事件有批量更新来处理功能,但是这一些非常规的事件中，批量更新功能会被打破。
 // 所以我们可以用react-dom中提供的unstable_batchedUpdates 来进行批量更新。
+// 在执行异步时候会setState导致渲染多次，使用unstable_batchedUpdates只会渲染一次（性能优化）
 export class Unstable_BatchedUpdates extends Component<any, any> {
 	constructor(props) {
 		super(props)

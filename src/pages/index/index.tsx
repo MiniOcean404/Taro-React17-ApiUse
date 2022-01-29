@@ -49,10 +49,13 @@ export default class Index extends PureComponent<{}, State> {
 					{/*<Routes>*/}
 					{/*<Route path='/v-if' element={<Vif />} />*/}
 					{/*</Routes>*/}
+
 					{/*传递父子关系*/}
 					<SButton value={false}> </SButton>
+
 					{/*函数式组件*/}
 					<FC message='函数式组件'>传递的children</FC>
+
 					{/*Vue Api React的写法*/}
 					<VIfVShow />
 					<VFor />
@@ -64,6 +67,7 @@ export default class Index extends PureComponent<{}, State> {
 						scopeSlot={(userInfo) => <View>{userInfo.name}</View>}>
 						默认插槽
 					</Slot>
+
 					{/*组件类Api使用*/}
 					<ClassComponent />
 					<Memo />
@@ -73,12 +77,14 @@ export default class Index extends PureComponent<{}, State> {
 					<FragmentUse />
 					<ProfilerUse />
 					<StrictModeUse />
+
 					{/*工具类Api使用*/}
 					<CreateElementUse />
 					<ProvideInject />
 					<CreateRef />
 					<IsValidElement />
 					<ChildrenMapForEachCountToArrayOnly />
+
 					{/*Hook*/}
 					<UseStateHook>1</UseStateHook>
 					<UseEffectHook />
