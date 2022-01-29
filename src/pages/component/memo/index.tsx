@@ -1,4 +1,4 @@
-import { Component, Fragment, memo } from 'react'
+import { Component, memo } from 'react'
 import { View } from '@tarojs/components'
 import { memoState } from 'src/types'
 
@@ -20,7 +20,7 @@ const controlIsRender = (pre, next) => {
 // React.memo只能对props的情况确定是否渲染，而PureComponent是针对props和state。
 const NewTexMemo = memo(TextMemo, controlIsRender)
 
-export default class ClassComponent extends Component<{}, memoState> {
+export default class Memo extends Component<{}, memoState> {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -32,7 +32,7 @@ export default class ClassComponent extends Component<{}, memoState> {
 		const { number } = this.state
 
 		return (
-			<Fragment>
+			<>
 				return{' '}
 				<View>
 					<View>
@@ -45,7 +45,7 @@ export default class ClassComponent extends Component<{}, memoState> {
 					<NewTexMemo number={number} />
 				</View>
 				<br />
-			</Fragment>
+			</>
 		)
 	}
 }
