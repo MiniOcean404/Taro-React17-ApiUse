@@ -16,7 +16,7 @@ import { Profiler } from 'react'
 // 6 -interactions: set{} -> 本次更新的 interactions 的集合
 
 export const ProfilerUse = () => {
-	const cb = (...arg) => console.log(arg)
+	const cb = (...arg) => console.log('ProfilerUse', arg)
 
 	return (
 		<>

@@ -6,13 +6,13 @@ import { State } from 'src/types'
 import { UserInfoContext } from '../../context'
 
 import { FC } from '../function-component/FC'
-import { FCUseStateHook } from '../hook/useState'
+import { UseStateHook } from '../hook/useState'
 import { VIfVShow } from '../Vue&React/v-if&v-show'
 import { VFor } from '../Vue&React/v-for'
 import { Computed } from '../Vue&React/computed'
 import { Watch } from '../Vue&React/watch'
 import { StyleClass } from '../Vue&React/style-class'
-import { ProvideInject } from '../Vue&React/provide-inject'
+import { ProvideInject } from '../tool/createContext-provide-inject'
 import { Slot } from '../Vue&React/slot'
 import ClassComponent from '../component/pure-component'
 import SButton from '../../components/button'
@@ -23,6 +23,17 @@ import { LazyAndSuspense } from '../component/lazy&Suspense'
 import { FragmentUse } from '../component/fragment'
 import { ProfilerUse } from '../component/profiler'
 import { StrictModeUse } from '../component/StrictMode'
+import { CreateElementUse } from '../tool/createElement'
+import { CreateRef } from '../tool/createRef'
+import { IsValidElement } from '../tool/isValidElement'
+import { ChildrenMapForEachCountToArrayOnly } from '../tool/children-map-forEach-count'
+import { UseEffectHook } from '../hook/useEffect'
+import { UseMemoHookComputed } from '../hook/useMemo-computed'
+import { UseCallBackHook } from '../hook/useCallBack'
+import { UseRefHook } from '../hook/useRef'
+import { UseReducerHook } from '../hook/useReducer'
+import { UseDebugValueHook } from '../hook/useDebugValue-customHook'
+import { UseImperativeHandleHook } from '../ex'
 
 export default class Index extends PureComponent<{}, State> {
 	render() {
@@ -32,31 +43,21 @@ export default class Index extends PureComponent<{}, State> {
 					{/*<Routes>*/}
 					{/*<Route path='/v-if' element={<Vif />} />*/}
 					{/*</Routes>*/}
-
 					{/*传递父子关系*/}
 					<SButton value={false}> </SButton>
-
 					{/*函数式组件*/}
 					<FC message='函数式组件'>传递的children</FC>
-
-					{/*函数式组件*/}
-					<FCUseStateHook>1</FCUseStateHook>
-
 					{/*Vue Api React的写法*/}
 					<VIfVShow />
-
 					<VFor />
 					<Computed />
 					<Watch />
 					<StyleClass />
-					<ProvideInject />
-
 					<Slot
 						nameSlot={<View>具名插槽</View>}
 						scopeSlot={(userInfo) => <div>{userInfo.name}</div>}>
 						默认插槽
 					</Slot>
-
 					{/*组件类Api使用*/}
 					<ClassComponent />
 					<Memo />
@@ -66,6 +67,21 @@ export default class Index extends PureComponent<{}, State> {
 					<FragmentUse />
 					<ProfilerUse />
 					<StrictModeUse />
+					{/*工具类Api使用*/}
+					<CreateElementUse />
+					<ProvideInject />
+					<CreateRef />
+					<IsValidElement />
+					<ChildrenMapForEachCountToArrayOnly />
+					{/*Hook*/}
+					<UseStateHook>1</UseStateHook>
+					<UseEffectHook />
+					<UseMemoHookComputed />
+					<UseCallBackHook />
+					<UseRefHook />
+					<UseReducerHook />
+					<UseDebugValueHook />
+					<UseImperativeHandleHook />
 				</UserInfoContext.Provider>
 			</Fragment>
 		)

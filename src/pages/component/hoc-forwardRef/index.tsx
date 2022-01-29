@@ -7,7 +7,7 @@ class Index extends Component<any, any> {
 	}
 
 	componentDidMount() {
-		console.log('HocForwardRef', '被获取的componentDidMount函数')
+		console.log('HocForwardRef:', '被获取的componentDidMount函数')
 	}
 
 	render() {

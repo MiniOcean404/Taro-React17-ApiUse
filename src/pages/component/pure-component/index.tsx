@@ -42,11 +42,11 @@ export default class ClassComponent extends PureComponent<{}, State> {
 
 	// render -> React 更新 DOM 和 refs -> 挂载钩子
 	componentDidMount() {
-		console.log('挂载完成')
+		console.log('PureComponent', '挂载完成')
 	}
 
 	componentWillUnmount() {
-		console.log('将要卸载')
+		console.log('PureComponent', '将要卸载')
 	}
 
 	componentDidShow() {}

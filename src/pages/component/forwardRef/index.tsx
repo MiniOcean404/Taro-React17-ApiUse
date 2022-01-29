@@ -40,7 +40,7 @@ export class ForWardRef extends Component<any, any> {
 	}
 
 	componentDidMount() {
-		console.log(this.node)
+		console.log('ForWardRef', this.node)
 	}
 
 	render() {

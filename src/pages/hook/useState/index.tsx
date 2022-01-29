@@ -8,7 +8,7 @@ type AppProps = {
 	children?: ReactNode
 }
 
-export const FCUseStateHook: FC<AppProps> = () => {
+export const UseStateHook: FC<AppProps> = () => {
 	// `val`会推导为boolean类型， toggle接收boolean类型参数
 	const [val, toggle] = useState(false)
 
