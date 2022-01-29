@@ -8,22 +8,22 @@ import { cloneElement, Component } from 'react'
 
 function FatherComponent({ children }) {
 	const newChildren = cloneElement(children, { age: 18 })
-	return <div> {newChildren} </div>
+	return <View> {newChildren} </View>
 }
 
 function SonComponent(props) {
 	console.log(props)
-	return <div>hello,world</div>
+	return <View>hello,world</View>
 }
 
 export class CloneElement extends Component {
 	render() {
 		return (
-			<div className='box'>
+			<View className='box'>
 				<FatherComponent>
 					<SonComponent name='alien' />
 				</FatherComponent>
-			</div>
+			</View>
 		)
 	}
 }

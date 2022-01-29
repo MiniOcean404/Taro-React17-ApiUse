@@ -1,4 +1,5 @@
 import { useEffect, useRef, createRef, Component } from 'react'
+import { View } from '@tarojs/components'
 
 export const CreateRef = () => {
 	const node = useRef(null)
@@ -7,7 +8,7 @@ export const CreateRef = () => {
 		console.log(node.current)
 	}, [])
 
-	return <div ref={node}> useRef </div>
+	return <View ref={node}> useRef </View>
 }
 
 // 类组件中使用
@@ -27,10 +28,10 @@ export class Index extends Component<any, any> {
 		return (
 			<>
 				{/*第一种使用createRef创建*/}
-				<div ref={this.node}> my name is alien </div>
+				<View ref={this.node}> my name is alien </View>
 
 				{/*第二种直接赋值*/}
-				<div ref={() => this.node}> my name is alien </div>
+				<View ref={() => this.node}> my name is alien </View>
 			</>
 		)
 	}

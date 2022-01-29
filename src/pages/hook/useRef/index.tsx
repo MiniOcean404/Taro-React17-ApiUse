@@ -1,18 +1,19 @@
 import { FC, useRef } from 'react'
+import { View } from '@tarojs/components'
 
 type AppProps = {}
 
 export const UseRefHook: FC<AppProps> = () => {
 	const dom = useRef(null)
 	const submit = () => {
-		/*  <div >表单组件</div>  dom 节点 */
+		/*  <View >表单组件</View>  dom 节点 */
 		console.log(dom.current)
 	}
 	return (
-		<div>
+		<View>
 			{/* ref 标记当前dom节点 */}
-			<div ref={dom}>表单组件</div>
+			<View ref={dom}>表单组件</View>
 			<button onClick={() => submit()}>提交</button>
-		</div>
+		</View>
 	)
 }

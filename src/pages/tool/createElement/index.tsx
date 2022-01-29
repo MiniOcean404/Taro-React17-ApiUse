@@ -3,8 +3,8 @@ import { createElement, Fragment } from 'react'
 
 // 编译后
 // render() {
-//   return React.createElement("div", { className: "box" },
-//     React.createElement("div", { className: "item" }, "\u751F\u547D\u5468\u671F"),
+//   return React.createElement("View", { className: "box" },
+//     React.createElement("View", { className: "item" }, "\u751F\u547D\u5468\u671F"),
 //     React.createElement(React.Fragment, null, " Flagment "),
 //     "text\u6587\u672C");
 // }
@@ -22,7 +22,7 @@ import { createElement, Fragment } from 'react'
 export const CreateElementUse = () => {
 	console.log(
 		'createElement使用',
-		createElement('div', { className: 'box' }, [createElement('text', { key: '1' }, '子文本')]),
+		createElement('View', { className: 'box' }, [createElement('text', { key: '1' }, '子文本')]),
 	)
 
 	return (

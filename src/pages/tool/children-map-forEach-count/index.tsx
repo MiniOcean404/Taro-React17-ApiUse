@@ -1,8 +1,9 @@
 import { Children, Component } from 'react'
+import { View } from '@tarojs/components'
 
 class Text extends Component {
 	render() {
-		return <div>hello,world</div>
+		return <View>hello,world</View>
 	}
 }
 
@@ -27,7 +28,7 @@ export const ChildrenMapForEachCountToArrayOnly = () => {
 				.map((_item, index) =>
 					new Array(2).fill(1).map((_item, index1) => <Text key={index + index1} />),
 				)}
-			<span>React.Children</span>
+			<View>React.Children</View>
 		</WarpComponent>
 	)
 }

@@ -1,4 +1,5 @@
 import { FC, Fragment, useReducer } from 'react'
+import { View } from '@tarojs/components'
 
 type AppProps = {}
 
@@ -25,7 +26,7 @@ export const UseReducerHook: FC<AppProps> = () => {
 
 	return (
 		<Fragment>
-			<div>
+			<View>
 				当前值：{number}
 				{/* 派发更新 */}
 				<button onClick={() => dispatchNumber({ name: 'add' })}>增加</button>
@@ -33,7 +34,7 @@ export const UseReducerHook: FC<AppProps> = () => {
 				<button onClick={() => dispatchNumber({ name: 'reset', resetValue: 666 })}>赋值</button>
 				{/* 把dispatch 和 state 传递给子组件  */}
 				{/*<MyChildren dispatch={dispatchNumber} State={{ number }} />*/}
-			</div>
+			</View>
 		</Fragment>
 	)
 }

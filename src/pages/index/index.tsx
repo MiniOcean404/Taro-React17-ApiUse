@@ -34,9 +34,16 @@ import { UseRefHook } from '../hook/useRef'
 import { UseReducerHook } from '../hook/useReducer'
 import { UseDebugValueHook } from '../hook/useDebugValue-customHook'
 import { UseImperativeHandleHook } from '../ex'
+import { ReactDOMRender } from '../react-dom/render&hydrate'
+import { CreatePortal } from '../react-dom/createPortal'
+import { FlushSync } from '../react-dom/flushSync'
+import { UnmountComponentAtNode } from '../react-dom/unmountComponentAtNode'
+import { Unstable_BatchedUpdates } from '../react-dom/unstable_batchedUpdates'
 
 export default class Index extends PureComponent<{}, State> {
 	render() {
+		// ReactDOM Api
+		ReactDOMRender()
 		return (
 			<Fragment>
 				<UserInfoContext.Provider value={{ userInfo: { name: '胖头鱼' } }}>
@@ -55,7 +62,7 @@ export default class Index extends PureComponent<{}, State> {
 					<StyleClass />
 					<Slot
 						nameSlot={<View>具名插槽</View>}
-						scopeSlot={(userInfo) => <div>{userInfo.name}</div>}>
+						scopeSlot={(userInfo) => <View>{userInfo.name}</View>}>
 						默认插槽
 					</Slot>
 					{/*组件类Api使用*/}
@@ -82,6 +89,12 @@ export default class Index extends PureComponent<{}, State> {
 					<UseReducerHook />
 					<UseDebugValueHook />
 					<UseImperativeHandleHook />
+
+					{/*ReactDOM Api*/}
+					<CreatePortal />
+					<FlushSync />
+					<UnmountComponentAtNode />
+					<Unstable_BatchedUpdates />
 				</UserInfoContext.Provider>
 			</Fragment>
 		)

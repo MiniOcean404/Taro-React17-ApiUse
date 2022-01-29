@@ -1,5 +1,6 @@
 import { FC, useDebugValue, useState } from 'react'
 import { tuple } from '../../../tool/type'
+import { View } from '@tarojs/components'
 
 type AppProps = {}
 
@@ -34,9 +35,9 @@ export const UseDebugValueHook: FC<AppProps> = () => {
 	const [v, seV] = useDebugHook(10)
 
 	return (
-		<div>
+		<View>
 			{v}
 			<button onClick={() => seV()}>setCount</button>
-		</div>
+		</View>
 	)
 }

@@ -14,10 +14,10 @@ export const UseLayoutEffectHook: FC<AppProps> = () => {
 		/*我们需要在dom绘制之前，移动dom到制定位置*/
 	}, [])
 	return (
-		<div>
+		<View>
 			<Text ref={target} className='animate'>
 				{' '}
 			</Text>
-		</div>
+		</View>
 	)
 }

@@ -1,4 +1,5 @@
 import { Component } from 'react'
+import { View } from '@tarojs/components'
 
 export default class Lazy extends Component {
 	constructor(props) {
@@ -9,7 +10,7 @@ export default class Lazy extends Component {
 	}
 	render() {
 		return (
-			<div>
+			<View>
 				<img
 					src={'http://tva1.sinaimg.cn/large/0070XTeOgy1gwc6mpnwbzj30sg0sg773.jpg'}
 					className='alien'
@@ -17,7 +18,7 @@ export default class Lazy extends Component {
 					height={30}
 					alt='1'
 				/>
-			</div>
+			</View>
 		)
 	}
 }
