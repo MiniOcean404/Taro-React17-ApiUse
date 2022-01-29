@@ -33,7 +33,6 @@ import { UseCallBackHook } from '../hook/useCallBack'
 import { UseRefHook } from '../hook/useRef'
 import { UseReducerHook } from '../hook/useReducer'
 import { UseDebugValueHook } from '../hook/useDebugValue-customHook'
-import { UseImperativeHandleHook } from '../ex'
 import { ReactDOMRender } from '../react-dom/render&hydrate'
 import { CreatePortal } from '../react-dom/createPortal'
 import { FlushSync } from '../react-dom/flushSync'
@@ -88,7 +87,6 @@ export default class Index extends PureComponent<{}, State> {
 					<UseRefHook />
 					<UseReducerHook />
 					<UseDebugValueHook />
-					<UseImperativeHandleHook />
 
 					{/*ReactDOM Api*/}
 					<CreatePortal />
