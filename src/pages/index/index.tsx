@@ -38,11 +38,12 @@ import { CreatePortal } from '../react-dom/createPortal'
 import { FlushSync } from '../react-dom/flushSync'
 import { UnmountComponentAtNode } from '../react-dom/unmountComponentAtNode'
 import { Unstable_BatchedUpdates } from '../react-dom/unstable_batchedUpdates'
+import { ENV_TYPE, getEnv } from '@tarojs/taro'
 
 export default class Index extends PureComponent<{}, State> {
 	render() {
 		// ReactDOM Api
-		ReactDOMRender()
+		if (getEnv() !== ENV_TYPE.WEAPP) ReactDOMRender()
 		return (
 			<Fragment>
 				<UserInfoContext.Provider value={{ userInfo: { name: '胖头鱼' } }}>
@@ -70,13 +71,13 @@ export default class Index extends PureComponent<{}, State> {
 
 					{/*组件类Api使用*/}
 					<ClassComponent />
+					<FragmentUse />
+					<StrictModeUse />
 					<Memo />
 					<ForWardRef />
 					<HocForwardRef />
 					<LazyAndSuspense />
-					<FragmentUse />
 					<ProfilerUse />
-					<StrictModeUse />
 
 					{/*工具类Api使用*/}
 					<CreateElementUse />

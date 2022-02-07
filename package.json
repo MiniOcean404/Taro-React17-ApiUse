@@ -1,6 +1,7 @@
 {
 	"name": "taro-h5-rn-weapp",
-	"version": "1.0.0",
+  "author": "",
+  "version": "1.0.0",
 	"private": true,
 	"description": "Taro-React模板",
 	"templateInfo": {
@@ -8,7 +9,21 @@
 		"typescript": true,
 		"css": "sass"
 	},
+  "browserslist": [
+    "last 3 versions",
+    "Android >= 4.1",
+    "ios >= 8"
+  ],
 	"scripts": {
+    "dev:weapp": "npm run build:weapp -- --watch",
+    "dev:swan": "npm run build:swan -- --watch",
+    "dev:alipay": "npm run build:alipay -- --watch",
+    "dev:tt": "npm run build:tt -- --watch",
+    "dev:h5": "npm run build:h5 -- --watch",
+    "dev:rn": "npm run build:rn -- --watch",
+    "dev:qq": "npm run build:qq -- --watch",
+    "dev:jd": "npm run build:jd -- --watch",
+    "dev:quickapp": "npm run build:quickapp -- --watch",
 		"build:weapp": "taro build --type weapp",
 		"build:swan": "taro build --type swan",
 		"build:alipay": "taro build --type alipay",
@@ -18,23 +33,8 @@
 		"build:rn-ios": "taro build --type rn --platform ios",
 		"build:qq": "taro build --type qq",
 		"build:jd": "taro build --type jd",
-		"build:quickapp": "taro build --type quickapp",
-		"dev:weapp": "npm run build:weapp -- --watch",
-		"dev:swan": "npm run build:swan -- --watch",
-		"dev:alipay": "npm run build:alipay -- --watch",
-		"dev:tt": "npm run build:tt -- --watch",
-		"dev:h5": "npm run build:h5 -- --watch",
-		"dev:rn": "npm run build:rn -- --watch",
-		"dev:qq": "npm run build:qq -- --watch",
-		"dev:jd": "npm run build:jd -- --watch",
-		"dev:quickapp": "npm run build:quickapp -- --watch"
+		"build:quickapp": "taro build --type quickapp"
 	},
-	"browserslist": [
-		"last 3 versions",
-		"Android >= 4.1",
-		"ios >= 8"
-	],
-	"author": "",
 	"dependencies": {
 		"@babel/runtime": "^7.7.7",
 		"@tarojs/components": "3.4.0",

@@ -3,6 +3,7 @@ import { View } from '@tarojs/components'
 
 type Props = {}
 
+// 是否是有效的react元素
 export const Index: FC<Props> = ({ children }) => {
 	const newChild = (children as Array<any>).filter((item) => isValidElement(item))
 	return <> {newChild} </>

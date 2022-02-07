@@ -5,7 +5,7 @@ function Son(props) {
 	const { grandRef } = props
 	return (
 		<View>
-			<View> i am alien </View>
+			<View>forwardRef获取父子间元素</View>
 			<Text ref={grandRef}>这个是想要获取元素</Text>
 		</View>
 	)
@@ -29,6 +29,7 @@ class Father extends Component<any, any> {
 // forwardRef出现就是解决这个问题，把ref转发到自定义的forwardRef定义的属性上，让ref，可以通过props传递。
 // 将指针传递
 const NewFather = forwardRef((props, ref) => {
+	// {...props} 将参数解构一个个赋值为prop
 	return <Father grandRef={ref} {...props} />
 })
 
@@ -49,7 +50,6 @@ export class ForWardRef extends Component<any, any> {
 				<View>
 					<NewFather ref={(node) => (this.node = node)} />
 				</View>
-
 				<br />
 			</>
 		)

@@ -1,4 +1,4 @@
-import { flushSync } from 'react-dom'
+// import { flushSync } from 'react-dom'
 import { Component } from 'react'
 import { View } from '@tarojs/components'
 
@@ -15,9 +15,9 @@ export class FlushSync extends Component {
 
 		this.setState({ number: 2 })
 
-		flushSync(() => {
-			this.setState({ number: 3 })
-		})
+		// flushSync(() => {
+		// 	this.setState({ number: 3 })
+		// })
 
 		this.setState({ number: 4 })
 	}

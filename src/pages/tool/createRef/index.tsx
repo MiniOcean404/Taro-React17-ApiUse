@@ -5,7 +5,7 @@ export const CreateRef = () => {
 	const node = useRef(null)
 
 	useEffect(() => {
-		console.log(node.current)
+		console.log('CreateRef', node.current)
 	}, [])
 
 	return <View ref={node}> useRef </View>
