@@ -41,9 +41,13 @@ import { Unstable_BatchedUpdates } from '../react-dom/unstable_batchedUpdates'
 import { ENV_TYPE, getEnv } from '@tarojs/taro'
 
 export default class Index extends PureComponent<{}, State> {
-	render() {
+	componentDidUpdate() {
 		// ReactDOM Api
 		if (getEnv() !== ENV_TYPE.WEAPP) ReactDOMRender()
+		return true
+	}
+
+	render() {
 		return (
 			<Fragment>
 				<UserInfoContext.Provider value={{ userInfo: { name: '胖头鱼' } }}>
