@@ -21,9 +21,9 @@ export default {
 			//最少 2 个、最多 5 个 tab
 			{
 				pagePath: '', // 页面路径，必须在 pages 中先定义
-				text: '', // tab 上按钮文字
+				text: '首页', // tab 上按钮文字
 				iconPath: '', // 图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，不支持网络图片。 当 position 为 top 时，不显示 icon。
-				selectedIconPath: '', // 选中时的图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，不支持网络图片。  当 position 为 top 时，不显示 icon
+				selectedIconPath: '', // 选中时的图片路径
 			},
 		],
 		color: '', //	tab 上的文字默认颜色，仅支持十六进制颜色
