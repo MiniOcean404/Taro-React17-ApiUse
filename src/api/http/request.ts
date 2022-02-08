@@ -1,7 +1,8 @@
-import { getEnv, ENV_TYPE, addInterceptor, request, interceptors, showLoading } from '@tarojs/taro'
+import { addInterceptor, request, interceptors, showLoading } from '@tarojs/taro'
 import TaroType from '@tarojs/taro/types'
 import { interceptor } from './Interceptor'
 import { paramsDeploy } from './config'
+import { isRN } from '../../tool/runtimeEnv'
 
 export default async function req(params) {
 	await showLoading({
@@ -13,7 +14,7 @@ export default async function req(params) {
 	return request(mergeParams)
 }
 
-if (getEnv() !== ENV_TYPE.RN) {
+if (!isRN) {
 	// 拦截器
 	addInterceptor(interceptor)
 	// Taro.addInterceptor(Taro.interceptors.logInterceptor)

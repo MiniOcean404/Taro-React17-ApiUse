@@ -38,12 +38,12 @@ import { CreatePortal } from '../../learn/react-dom/createPortal'
 import { FlushSync } from '../../learn/react-dom/flushSync'
 import { UnmountComponentAtNode } from '../../learn/react-dom/unmountComponentAtNode'
 import { Unstable_BatchedUpdates } from '../../learn/react-dom/unstable_batchedUpdates'
-import { ENV_TYPE, getEnv } from '@tarojs/taro'
+import { isWeAPP } from '../../tool/runtimeEnv'
 
 export default class Index extends PureComponent<{}, State> {
 	componentDidUpdate() {
 		// ReactDOM Api
-		if (getEnv() !== ENV_TYPE.WEAPP) ReactDOMRender()
+		if (!isWeAPP) ReactDOMRender()
 		return true
 	}
 
