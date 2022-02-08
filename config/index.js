@@ -25,7 +25,7 @@ const config = {
 	},
 	sass: {
 		projectDirectory: path.resolve(__dirname, '..'),
-		resource: ['src/css/base/variable.scss', 'src/css/base/mixins.scss'],
+		resource: ['src/assets/css/base/variable.scss', 'src/assets/css/base/mixins.scss'],
 	},
 	mini: {
 		postcss: {

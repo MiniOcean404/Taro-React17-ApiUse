@@ -1,6 +1,6 @@
 import { FC, Fragment, ReactNode, useContext } from 'react'
 import { View } from '@tarojs/components'
-import { UserInfoContext } from '../../../context'
+import { UserInfoContext } from '../../../tool/context'
 
 type AppProps = {
 	children?: ReactNode
