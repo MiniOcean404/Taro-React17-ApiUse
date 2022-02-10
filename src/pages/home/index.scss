@@ -1,0 +1,13 @@
+.home {
+	.swiper-p {
+		height: 400px;
+		margin: 20px;
+		border-radius: 20px;
+		overflow: hidden;
+
+		.swiper {
+			width: 100%;
+			height: inherit;
+		}
+	}
+}

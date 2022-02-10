@@ -9,10 +9,6 @@ export default function () {
 		}
 	}
 
-	function getPhone(res) {
-		console.log(res)
-	}
-
 	return (
 		<View className='home'>
 			<View className={'atAvatar-content'}>
@@ -21,15 +17,6 @@ export default function () {
 
 			<View className={'content'}>
 				<AtButton className={'login'} type='primary' onClick={() => loginFn()} size={'normal'}>
-					<Text>登录</Text>
-				</AtButton>
-
-				<AtButton
-					className={'login'}
-					type='primary'
-					size={'normal'}
-					openType={'getPhoneNumber'}
-					onGetPhoneNumber={getPhone}>
 					<Text>登录</Text>
 				</AtButton>
 			</View>
