@@ -40,7 +40,7 @@
 		"@tarojs/components": "3.4.1",
 		"@tarojs/plugin-framework-react": "3.4.0",
 		"@tarojs/react": "3.4.1",
-		"@tarojs/rn-runner": "^3.4.0",
+		"@tarojs/rn-runner": "^3.4.1",
 		"@tarojs/runtime": "3.4.1",
 		"@tarojs/taro": "3.4.1",
 		"@tarojs/taro-rn": "^3.4.0",
