@@ -1,5 +1,5 @@
 import './index.scss'
-import { Swiper, SwiperItem } from '@tarojs/components'
+import { Swiper, SwiperItem, Image } from '@tarojs/components'
 import { AtSearchBar } from 'taro-ui'
 import { useState } from 'react'
 
@@ -27,7 +27,7 @@ export default function () {
 				{swiperList.map((i, index) => {
 					return (
 						<SwiperItem key={index}>
-							<img className={'swiper'} src={i} alt='' />
+							<Image className={'swiper'} src={i} />
 						</SwiperItem>
 					)
 				})}
