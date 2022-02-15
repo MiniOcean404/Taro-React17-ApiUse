@@ -1,5 +1,5 @@
 import { FC, useLayoutEffect, useRef } from 'react'
-import { Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 
 type AppProps = {}
 

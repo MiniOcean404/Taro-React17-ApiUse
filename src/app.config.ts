@@ -25,19 +25,19 @@ export default {
 			//最少 2 个、最多 5 个 tab
 			{
 				pagePath: 'pages/home/index', // 页面路径，必须在 pages 中先定义
-				text: '', // tab 上按钮文字
+				text: '首页', // tab 上按钮文字
 				iconPath: 'assets/img/tabBar/home-dark.png', // 图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，不支持网络图片。 当 position 为 top 时，不显示 icon。
 				selectedIconPath: 'assets/img/tabBar/home-light.png', // 选中时的图片路径
 			},
 			{
 				pagePath: 'pages/index/index', // 页面路径，必须在 pages 中先定义
-				text: '', // tab 上按钮文字
+				text: '学习', // tab 上按钮文字
 				iconPath: 'assets/img/tabBar/home-dark.png', // 图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，不支持网络图片。 当 position 为 top 时，不显示 icon。
 				selectedIconPath: 'assets/img/tabBar/home-light.png', // 选中时的图片路径
 			},
 			{
 				pagePath: 'pages/mine/index', // 页面路径，必须在 pages 中先定义
-				text: '', // tab 上按钮文字
+				text: '我', // tab 上按钮文字
 				iconPath: 'assets/img/tabBar/mine-dark.png', // 图片路径，icon 大小限制为40kb，建议尺寸为 81px * 81px，不支持网络图片。 当 position 为 top 时，不显示 icon。
 				selectedIconPath: 'assets/img/tabBar/mine-light.png', // 选中时的图片路径
 			},

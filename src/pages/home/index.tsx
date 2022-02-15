@@ -1,4 +1,3 @@
-import { View } from '@tarojs/components'
 import './index.scss'
 import { Swiper, SwiperItem } from '@tarojs/components'
 import { AtSearchBar } from 'taro-ui'
@@ -14,27 +13,25 @@ export default function () {
 	const [searchWin, searchWinFn] = useState('')
 
 	return (
-		<View className='home'>
+		<>
 			<AtSearchBar value={searchWin} onChange={(v) => searchWinFn(v)} />
 
-			<View>
-				<Swiper
-					className='swiper-p'
-					indicatorColor='#F7E78BFF'
-					indicatorActiveColor='#333'
-					circular
-					indicatorDots
-					autoplay
-					interval={3000}>
-					{swiperList.map((i, index) => {
-						return (
-							<SwiperItem key={index}>
-								<img className={'swiper'} src={i} alt='' />
-							</SwiperItem>
-						)
-					})}
-				</Swiper>
-			</View>
-		</View>
+			<Swiper
+				className='swiper-p'
+				indicatorColor='#F7E78BFF'
+				indicatorActiveColor='#333'
+				circular
+				indicatorDots
+				autoplay
+				interval={3000}>
+				{swiperList.map((i, index) => {
+					return (
+						<SwiperItem key={index}>
+							<img className={'swiper'} src={i} alt='' />
+						</SwiperItem>
+					)
+				})}
+			</Swiper>
+		</>
 	)
 }

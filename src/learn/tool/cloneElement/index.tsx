@@ -5,6 +5,7 @@
 // 我们设置一个场景，在组件中，去劫持children，然后给children赋能一些额外的props:
 
 import { cloneElement, Component } from 'react'
+import { View } from '@tarojs/components'
 
 function FatherComponent({ children }) {
 	const newChildren = cloneElement(children, { age: 18 })
