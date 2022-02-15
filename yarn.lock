@@ -2538,7 +2538,7 @@
     "@tarojs/runtime" "3.4.1"
     "@tarojs/taro-h5" "3.4.1"
 
-"@tarojs/webpack-runner@^3.4.1":
+"@tarojs/webpack-runner@3.4.1":
   version "3.4.1"
   resolved "https://registry.npmmirror.com/@tarojs/webpack-runner/-/webpack-runner-3.4.1.tgz#d40850b03e05d0a4bccd2c1fb113639a5dc05029"
   integrity sha512-/JSau6c0HDqqi2vrqatvrs8RtaRRCpqsE4O8uBxRyzDXd6jhWO7ZvTEbJEQICbS3dGwcpCofe7hLmjfO4213jg==
