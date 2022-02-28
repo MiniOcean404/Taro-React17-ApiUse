@@ -5,7 +5,7 @@
  * 全局配置
  */
 export default {
-	pages: ['pages/home/index', 'pages/index/index', 'pages/mine/index'],
+	pages: ['pages/home/index', 'pages/index/index', 'pages/mine/index', 'pages/3d/index'],
 	// 通用
 	window: {
 		navigationBarTitleText: '首页', // 导航栏标题文字内容

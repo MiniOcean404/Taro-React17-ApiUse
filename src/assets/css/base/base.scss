@@ -1,4 +1,5 @@
-@import './normalize.scss';
+//https://juejin.cn/post/7055845836298649636#heading-7
+
 /* 初始化 */
 a,
 abbr,
@@ -126,22 +127,32 @@ xmp {
 	padding: 0;
 }
 
-//*::before,
-//*::after {
-//	box-sizing: border-box;
-//	margin: 0;
-//	padding: 0;
-//}
+*::before,
+*::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
 
+html,
 body {
+	height: 100%;
+	line-height: 1.5; // WCAG 标准规定，行高应至少为 1.5。
 	font: 14px/1 'PingFang SC', 'Microsoft YaHei', sans-serif;
-	-webkit-font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased; // 取消字体抗锯齿
 	-moz-osx-font-smoothing: grayscale;
 }
 
 img {
-	display: block;
 	border: none;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+	display: block;
+	max-width: 100%;
 }
 
 dl,
@@ -156,8 +167,18 @@ button,
 input,
 select,
 textarea {
-	box-sizing: border-box;
+	font: inherit; // 在默认情况下，按钮和输入框不会从它们的父项继承排版样式。相反，他们有自己怪异的风格。
 	outline: none;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	overflow-wrap: break-word; // 如果没有足够的空间容纳一行中的所有字符，文本将自动换行。
 }
 
 a,
@@ -165,7 +186,13 @@ a:link,
 a:visited,
 a:hover,
 a:active {
-	text-decoration: none;
+	text-decoration: none; // 设置a标签的下划线
+	hyphens: auto; // 连字符
+}
+
+#root,
+#__next {
+	isolation: isolate;
 }
 
 /* 浮动方式 */
@@ -270,7 +297,7 @@ a:active {
 
 /* 动画模式 */
 .td-camera {
-	perspective: 1000;
+	perspective: 1000px;
 }
 
 .td-space {
