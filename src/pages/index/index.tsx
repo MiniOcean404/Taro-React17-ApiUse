@@ -40,7 +40,7 @@ import { UnmountComponentAtNode } from '../../learn/react-dom/unmountComponentAt
 import { Unstable_BatchedUpdates } from '../../learn/react-dom/unstable_batchedUpdates'
 import { isWeAPP } from '../../tool/runtimeEnv'
 
-export default class Index extends PureComponent<{}, State> {
+export default class Practice extends PureComponent<{}, State> {
 	componentDidUpdate() {
 		// ReactDOM Api
 		if (!isWeAPP) ReactDOMRender()

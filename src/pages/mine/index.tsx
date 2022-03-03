@@ -3,7 +3,7 @@ import { AtAvatar, AtButton } from 'taro-ui'
 import './index.scss'
 import { isWeAPP } from '../../tool/runtimeEnv'
 
-export default function () {
+export default function Mine() {
 	async function loginFn() {
 		if (isWeAPP) {
 		}

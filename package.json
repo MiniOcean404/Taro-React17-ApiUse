@@ -46,7 +46,8 @@
 		"@tarojs/taro-rn": "^3.4.0",
 		"react": "^17.0.2",
 		"react-dom": "^17.0.0",
-		"react-native": "^0.66.0"
+		"react-native": "^0.66.0",
+		"three": "^0.138.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.8.0",
