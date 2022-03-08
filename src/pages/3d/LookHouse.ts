@@ -30,30 +30,37 @@ export default class LookHouse {
 		this.camera = new THREE.PerspectiveCamera(90, window.innerWidth / window.innerHeight, 0.1, 100)
 		this.camera.position.set(-0.3, 0, 0)
 
-		this.createMesh(ImgUrl.house, this.scene)
-		this.createControls()
+		this.createMesh(ImgUrl.house).then((res) => {
+			if (res) {
+				// 创建网格
+				this.scene.add(this.mesh)
+				// 坐标轴辅助线
+				this.scene.add(new THREE.AxesHelper(1000))
+				this.createControls()
 
-		// 添加DOM
-		const container = document.querySelector('#container')
-		container!.appendChild(this.renderer.domElement)
+				// 初次渲染
+				requestAnimationFrame(this.render.bind(this))
 
-		// 初次渲染
-		this.render()
-		requestAnimationFrame(this.render.bind(this))
+				// 添加DOM
+				const container = document.querySelector('#container')
+				container!.appendChild(this.renderer.domElement)
+			}
+		})
 	}
 
 	// 创建元素、网格
-	private createMesh(url, scene) {
-		const texture = new THREE.TextureLoader().load(url) // 创建纹理
-		const material = new THREE.MeshBasicMaterial({ map: texture })
-		material.side = THREE.DoubleSide
-		const geometry = new THREE.SphereGeometry(50, 256, 256)
-		this.mesh = new THREE.Mesh(geometry, material)
+	private createMesh(url) {
+		return new Promise((res) => {
+			new THREE.TextureLoader().load(url, (texture) => {
+				const material = new THREE.MeshBasicMaterial({ map: texture })
 
-		// 创建网格
-		scene.add(this.mesh)
-		// 坐标轴辅助线
-		scene.add(new THREE.AxesHelper(1000))
+				material.side = THREE.DoubleSide
+				const geometry = new THREE.SphereGeometry(50, 256, 256)
+				this.mesh = new THREE.Mesh(geometry, material)
+
+				res(true)
+			}) // 创建纹理
+		})
 	}
 
 	private createControls() {
@@ -65,8 +72,9 @@ export default class LookHouse {
 		controls.maxDistance = 200
 
 		controls.enablePan = false
-		controls.update() // 控制器需要
+
 		controls.target.copy(this.mesh.position)
+		// controls.update() // 控制器需要
 	}
 
 	private render() {
@@ -74,6 +82,7 @@ export default class LookHouse {
 		this.renderer.render(this.scene, this.camera)
 	}
 
+	// 添加性能监视器
 	public static addStats() {
 		LookHouse.stat = Stats()
 		document.body.appendChild(LookHouse.stat.dom)

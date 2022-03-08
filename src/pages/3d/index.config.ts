@@ -1,3 +1,3 @@
 export default definePageConfig({
-	navigationBarTitleText: '冰墩墩',
+	navigationBarTitleText: '3D全景看房图',
 })

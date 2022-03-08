@@ -1,9 +1,12 @@
+import { isWEB } from '../../../src/tool/runtimeEnv'
 import './index.scss'
 import LookHouse from './LookHouse'
 
 export default function THREE3D() {
-	new LookHouse()
-	LookHouse.addStats()
+	if (isWEB) {
+		new LookHouse()
+		LookHouse.addStats()
+	}
 
 	return (
 		<>
