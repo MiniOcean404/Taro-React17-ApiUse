@@ -11,6 +11,13 @@ export default function THREE3D() {
 	return (
 		<>
 			<div id='container'> </div>
+
+			{/* <div class='tooltip-box' style='tooltipPosition' ref='tooltipBox'>
+				<div className='container'>
+					<div className='title'>标题：{tooltopContent.title}</div>
+					<div className='explain'>说明：{tooltopContent.text}</div>
+				</div>
+			</div> */}
 		</>
 	)
 }
