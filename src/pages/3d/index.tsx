@@ -1,23 +1,59 @@
+import { useLayoutEffect, useRef, useState } from 'react'
+import { MeshEle } from './mesh'
 import { isWEB } from '../../../src/tool/runtimeEnv'
 import './index.scss'
-import LookHouse from './LookHouse'
+import { InitThreeD } from './threeD'
 
-export default function THREE3D() {
-	if (isWEB) {
-		new LookHouse()
-		LookHouse.addStats()
-	}
+export default function THREED() {
+	// 初始化位置全部在屏幕之外
+	const [tipPosition] = useState({
+		top: '-100%',
+		left: '-100%',
+	})
+	const [titlePosition] = useState({
+		top: '-100%',
+		left: '-100%',
+	})
+	const [topContent] = useState({ title: '', text: '' })
+
+	const threeDBox = useRef(null)
+	const tipBox = useRef(null)
+	const titleBox = useRef(null)
+
+	useLayoutEffect(() => {
+		if (isWEB) {
+			const initThreeD = new InitThreeD(threeDBox.current)
+			InitThreeD.addStats()
+
+			initThreeD.init(async (scene) => {
+				const house = await MeshEle.custom3DBall()
+				const tips = await MeshEle.customTip()
+
+				scene.add((initThreeD.threeProp.mesh = house))
+				tips.forEach((i: any) => {
+					scene.add(i)
+				})
+			})
+		}
+	}, [])
 
 	return (
 		<>
-			<div id='container'> </div>
+			<div id='home'>
+				{/* 3D容器 */}
+				<div className='Box' ref={threeDBox}></div>
 
-			{/* <div class='tooltip-box' style='tooltipPosition' ref='tooltipBox'>
-				<div className='container'>
-					<div className='title'>标题：{tooltopContent.title}</div>
-					<div className='explain'>说明：{tooltopContent.text}</div>
+				{/* 标题  */}
+				<div style={tipPosition} ref={tipBox}>
+					<div className='title'>标题：{topContent.title}</div>
+					<div className='explain'>说明：{topContent.text}</div>
 				</div>
-			</div> */}
+
+				{/* 文本 */}
+				<p className='title-text' ref={titleBox} style={titlePosition}>
+					{topContent.title}
+				</p>
+			</div>
 		</>
 	)
 }
