@@ -35,7 +35,7 @@ export class InitThreeD {
 		this.initRendererCameraScene()
 
 		// 场景添加网格、坐标轴辅助线
-		await cb(this.threeProp.scene, this.threeProp.mesh)
+		cb(this.threeProp.scene, this.threeProp.mesh)
 
 		this.addControls()
 		requestAnimationFrame(this.render.bind(this)) // 初次渲染，控制渲染频率
@@ -47,7 +47,7 @@ export class InitThreeD {
 		// 	this.onMousemove.bind(this),
 		// 	false,
 		// )
-		// mountEle.addEventListener('mouseleave', this.handleTooltipHide, false)
+		// this.threeProp.renderer.domElement.addEventListener('mouseleave', this.handleTooltipHide, false)
 	}
 
 	// 初始化渲染器、相机、场景

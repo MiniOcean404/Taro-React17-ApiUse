@@ -76,7 +76,7 @@ export default class LookHouse {
 			this.onMousemove.bind(this),
 			false,
 		)
-		// mountEle.addEventListener('mouseleave', this.handleTooltipHide, false)
+		this.threeProp.renderer.addEventListener('mouseleave', this.handleTooltipHide, false)
 	}
 
 	// 初始化渲染器、相机、场景

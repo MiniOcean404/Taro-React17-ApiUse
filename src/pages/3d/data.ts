@@ -12,7 +12,7 @@ export const tipsList = [
 			title: '进入厨房', // 标题
 			text: '', // 文本内容
 			image: 1, // 场景贴图的下标，对应dataList下标
-			showTip: false, // 是否展示弹出框
+			showTip: true, // 是否展示弹出框
 			showTitle: true, // 是否展示提示标题
 		},
 	},

@@ -3,6 +3,7 @@ import { MeshEle } from './mesh'
 import { isWEB } from '../../../src/tool/runtimeEnv'
 import './index.scss'
 import { InitThreeD } from './threeD'
+import { Tip } from './tip'
 
 export default function THREED() {
 	// 初始化位置全部在屏幕之外
@@ -25,15 +26,20 @@ export default function THREED() {
 			const initThreeD = new InitThreeD(threeDBox.current)
 			InitThreeD.addStats()
 
-			initThreeD.init(async (scene) => {
+			// 初始化
+			;(async function () {
 				const house = await MeshEle.custom3DBall()
 				const tips = await MeshEle.customTip()
 
-				scene.add((initThreeD.threeProp.mesh = house))
-				tips.forEach((i: any) => {
-					scene.add(i)
+				initThreeD.init((scene) => {
+					scene.add((initThreeD.threeProp.mesh = house))
+					tips.forEach((i: any) => {
+						scene.add(i)
+					})
 				})
-			})
+
+				new Tip(initThreeD.threeProp, tipBox, titleBox)
+			})()
 		}
 	}, [])
 
