@@ -7,11 +7,11 @@ import { Tip } from './tip'
 
 export default function THREED() {
 	// 初始化位置全部在屏幕之外
-	const [tipPosition] = useState({
+	const [tipPosition, setTipPosition] = useState({
 		top: '-100%',
 		left: '-100%',
 	})
-	const [titlePosition] = useState({
+	const [titlePosition, setTitlePostion] = useState({
 		top: '-100%',
 		left: '-100%',
 	})
@@ -38,7 +38,11 @@ export default function THREED() {
 					})
 				})
 
-				new Tip(initThreeD.threeProp, tipBox, titleBox)
+				new Tip(
+					initThreeD.threeProp,
+					{ box: tipBox.current, position: tipPosition, fn: setTipPosition },
+					{ box: titleBox.current, position: titlePosition, fn: setTitlePostion },
+				)
 			})()
 		}
 	}, [])

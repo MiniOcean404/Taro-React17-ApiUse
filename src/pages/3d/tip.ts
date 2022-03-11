@@ -16,14 +16,14 @@ export class Tip {
 
 	public content
 
-	constructor(threeProp, tipBox, titleBox) {
+	constructor(threeProp, tip, title) {
 		this.threeProp = threeProp
 		this.tips = this.threeProp.scene.children.filter((i) => {
 			return i.type === 'Sprite'
 		})
 
-		this.tip.box = tipBox
-		this.title.box = titleBox
+		this.tip = tip
+		this.title = title
 		const canvansDom = this.threeProp.renderer.domElement
 
 		// 监听tip
@@ -66,20 +66,22 @@ export class Tip {
 
 			// 判断展示tip还是title
 			if (intersects[0].object.content.showTip) {
+				console.log(boxWidth, position.x, boxWidth, this.tip.box!.clientWidth / 2)
+
 				let left = Math.round(boxWidth * position.x + boxWidth - this.tip.box!.clientWidth / 2)
 				let top = Math.round(-boxHeight * position.y + boxHeight - this.tip.box!.clientHeight / 2)
 
-				this.tip.position = {
+				this.tip.fn({
 					left: `${left}px`,
 					top: `${top}px`,
-				}
+				})
 			} else if (intersects[0].object.content.showTitle) {
 				let left = Math.round(boxWidth * position.x + boxWidth - this.title.box.clientWidth / 2)
 				let top = Math.round(-boxHeight * position.y + boxHeight)
-				this.title.position = {
+				this.title.fn({
 					left: `${left}px`,
 					top: `${top}px`,
-				}
+				})
 			}
 		} else {
 			// 鼠标移出去隐藏所有
