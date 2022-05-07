@@ -1,6 +1,6 @@
 {
 	"compilerOptions": {
-		"paths": { "@": ["src"], "@/*": ["src/*"] },
+		"paths": { "@": ["src"], "@/*": ["src/*"]},
 		"target": "es2017",
 		"module": "commonjs",
 		"removeComments": false,

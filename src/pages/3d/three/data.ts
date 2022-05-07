@@ -1,6 +1,7 @@
 export enum ImgUrl {
-	house = 'http://wo-insure-test.bhfae.com/zkr/admin//uploadpic/bd88f0d5637e4e748ad6967aa5c0f73clivingRoom.daa88722.jpg',
-	tip = 'http://wo-insure-test.bhfae.com/zkr/admin//uploadpic/dcdb661cc32c49e781b0990f827904b8tip.1fcbc2bb.png',
+	house = 'http://wo-insure-test.bhfae.com/zkr/admin/uploadpic/bd88f0d5637e4e748ad6967aa5c0f73clivingRoom.daa88722.jpg',
+	tip = 'http://wo-insure-test.bhfae.com/zkr/admin/uploadpic/dcdb661cc32c49e781b0990f827904b8tip.1fcbc2bb.png',
+	kitchen = 'https://ljnmeow.github.io/360-house-viewing/dist/img/kitchen.7d6af566.jpg',
 }
 
 export const tipsList = [

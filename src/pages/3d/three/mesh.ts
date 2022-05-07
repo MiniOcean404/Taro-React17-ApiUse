@@ -5,7 +5,7 @@ import { imgTextureLoad } from './utils'
 // 创建网格、元素
 export class MeshEle {
 	// 3D球体
-	static async custom3DBall() {
+	static async house() {
 		// 创建元素、网格
 		const houseTexture = await imgTextureLoad(ImgUrl.house) // 创建纹理
 		// 创建网格材质
@@ -17,8 +17,17 @@ export class MeshEle {
 		return new THREE.Mesh(geometry, material)
 	}
 
+	static kitchen() {
+		let texture = imgTextureLoad(ImgUrl.kitchen)
+		return new THREE.MeshBasicMaterial({
+			map: texture,
+			transparent: true,
+			opacity: 0,
+		})
+	}
+
 	// 自定义提示精灵图
-	static async customTip() {
+	static async tip() {
 		const tipTexture = await imgTextureLoad(ImgUrl.tip) // 创建纹理
 		let tipMaterial = new THREE.SpriteMaterial({ map: tipTexture })
 

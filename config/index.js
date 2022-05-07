@@ -18,10 +18,17 @@ const config = {
 	},
 	defineConstants: {},
 	alias: {
+		'@': path.resolve(__dirname, '..', 'src'),
+		'@/api': path.resolve(__dirname, '..', 'src/api'),
+		'@/assets': path.resolve(__dirname, '..', 'src/assets'),
 		'@/components': path.resolve(__dirname, '..', 'src/components'),
+		'@/pages': path.resolve(__dirname, '..', 'src/pages'),
+		'@/tool': path.resolve(__dirname, '..', 'src/tool'),
+		'@/type': path.resolve(__dirname, '..', 'src/type'),
 		'@/utils': path.resolve(__dirname, '..', 'src/utils'),
 		'@/package': path.resolve(__dirname, '..', 'package.json'),
 		'@/project': path.resolve(__dirname, '..', 'project.config.json'),
+		'@/learn': path.resolve(__dirname, '..', 'src/learn'),
 	},
 	sass: {
 		projectDirectory: path.resolve(__dirname, '..'),

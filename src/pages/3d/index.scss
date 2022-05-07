@@ -1,7 +1,24 @@
 #home {
-	// position: relative;
+	font-size: 16px;
+	position: relative;
 
-	.container {
-		// position: absolute;
+	.tip {
+		position: absolute;
+		width: 150px;
+		height: 95px;
+		background-color: rgba(#000000, 0.3);
+		color: white;
+
+		.title {
+			height: 30%;
+			text-align: center;
+		}
+
+		.explain {
+			height: 80%;
+		}
+	}
+
+	.title-tip {
 	}
 }
